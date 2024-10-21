@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/person.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="central">
+        <h2>==== Bem Vindo ====</h2>
+        <div>
+            <span>Informe a distancia (KM).</span>
+            <input type="text" id="distancia">
+        </div>
+        <div>
+            <span>Informe o consumo (L).</span>
+            <input type="text" id="consumo">
+        </div>
+        <div>
+            <span>infome o valor da gasolina (R$).</span>
+            <input type="text" id="valor">
+        </div>
+        <button id="botao">Calculo</button>
+        <p id="resultado">=== Veja aqui o resultado ===</p>
+    </div>
+</body>
+<script src="js/gasosa.js"></script>
+</html>
+
+
+
+body{
+    background: url(../image/meta-tag-ipiranga.png);
+    color: rgba(62, 145, 255, 0.913);
+    height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}.central{
+    width: 350px;
+    background: rgba(255, 241, 165, 0.715);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 6px 6px 18px rgba(33, 32, 32, 0.644);
+}
+.central div{  
+    font-size: 18px;
+    flex-direction: column;
+    display: flex;
+    color: rgb(55, 61, 179);
+}.central input{
+    height: 20px;
+    width: 300px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    outline: none;
+}.central input:focus{
+    background: rgb(247, 247, 250);
+}.central button{
+    background-color: rgb(250, 248, 220);
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.5s;
+}.central button:hover{
+    background: seashell;
+    transform: translate(-2px);
+}#resultado{
+    width: 300px;
+    height: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+const val_dist = document.querySelector("#distancia")
+const val_cons = document.querySelector("#consumo")
+const val_gas = document.querySelector("#valor")
+
+botao.addEventListener('click', calcular)
+
+function calcular(){
+    let val1 = Number(val_dist.value)
+    let val2 = Number(val_cons.value)
+    let val3 = Number(val_gas.value)
+    console.log(val1)
+    console.log(val2)
+    console.log(val3)
+    
+    total = (val1/val2) * val3
+
+    resultado.textContent = `A sua viagem custará R$ ${total.toFixed(2)}`
+}
